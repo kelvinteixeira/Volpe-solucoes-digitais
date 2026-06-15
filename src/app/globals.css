@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-volpe-primary: #ff6b00;
+  --color-volpe-primary-deep: #e85d00;
+  --color-volpe-secondary: #ff8a00;
+  --color-volpe-accent: #ffb347;
+  --color-volpe-black: #050505;
+  --color-volpe-black-secondary: #0d1117;
+  --color-volpe-gray-dark: #161b22;
+  --color-volpe-gray-medium: #30363d;
+  --color-volpe-white: #ffffff;
+  --color-volpe-text-secondary: #c9d1d9;
+  --color-volpe-text-muted: #8b949e;
+  --color-volpe-surface-light: #f8f9fa;
+
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-glow-orange: 0 0 30px rgba(255, 107, 0, 0.25);
+  --shadow-glow-orange-lg: 0 0 50px rgba(255, 107, 0, 0.35);
+
+  --background-image-volpe-gradient: linear-gradient(
+    135deg,
+    #ff6b00 0%,
+    #e85d00 50%,
+    #ffb347 100%
+  );
+  --background-image-volpe-gradient-btn: linear-gradient(
+    90deg,
+    #ff6b00 0%,
+    #e85d00 55%,
+    #ff8a00 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-volpe-black);
+  color: var(--color-volpe-white);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: rgba(255, 107, 0, 0.3);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-volpe-primary);
+  outline-offset: 2px;
+}
+
+/* Gradiente de texto — destaque laranja estilo logo */
+.text-volpe-gradient {
+  background: linear-gradient(135deg, #ff6b00 0%, #ffb347 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card padrão da identidade */
+.volpe-card {
+  border: 1px solid rgba(255, 107, 0, 0.22);
+  background-color: rgba(22, 27, 34, 0.85);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.volpe-card:hover {
+  border-color: rgba(255, 107, 0, 0.4);
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.08);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+}

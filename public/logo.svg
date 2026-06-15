@@ -1,0 +1,19 @@
+<svg viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fox-grad" x1="8" y1="4" x2="56" y2="60">
+      <stop stop-color="#FF6B00"/>
+      <stop offset="0.5" stop-color="#FF8A00"/>
+      <stop offset="1" stop-color="#FFB347"/>
+    </linearGradient>
+  </defs>
+  <!-- Fox mark -->
+  <path d="M12 28 L22 6 L30 24 Z" fill="url(#fox-grad)"/>
+  <path d="M34 24 L42 6 L52 28 Z" fill="url(#fox-grad)"/>
+  <path d="M10 30 C10 22 18 16 32 16 C46 16 54 22 54 30 C54 38 48 46 38 50 L32 58 L26 50 C16 46 10 38 10 30 Z" fill="url(#fox-grad)"/>
+  <circle cx="40" cy="30" r="3.5" fill="#050505"/>
+  <circle cx="41" cy="29" r="1" fill="#FFFFFF" opacity="0.8"/>
+  <!-- Wordmark -->
+  <text x="76" y="34" font-family="Poppins, sans-serif" font-weight="800" font-size="28" fill="#FF6B00">V</text>
+  <text x="96" y="34" font-family="Poppins, sans-serif" font-weight="800" font-size="28" fill="#FFFFFF">OLPE</text>
+  <text x="76" y="52" font-family="Poppins, sans-serif" font-weight="600" font-size="9" fill="#FF6B00" letter-spacing="2">SOLUÇÕES DIGITAIS</text>
+</svg>
