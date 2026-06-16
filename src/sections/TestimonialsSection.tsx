@@ -35,11 +35,15 @@ export function TestimonialsSection() {
           />
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid auto-rows-fr gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <ScrollReveal key={testimonial.id} delay={index * 0.08}>
-              <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
-                <BrandCard className="flex h-full flex-col">
+            <ScrollReveal key={testimonial.id} delay={index * 0.08} className="h-full">
+              <motion.div
+                className="h-full"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+              >
+                <BrandCard className="flex h-full min-h-[280px] flex-col">
                   <StarRating rating={testimonial.rating} />
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-volpe-text-secondary">
                     &ldquo;{testimonial.content}&rdquo;

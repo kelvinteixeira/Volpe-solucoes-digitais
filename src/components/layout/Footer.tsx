@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { footerLinkGroups, socialLinks } from "@/data/footer";
+import { footerLinkGroups } from "@/data/footer";
 import { siteConfig } from "@/data/site.config";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
-import { SocialIcon } from "@/components/ui/SocialIcon";
+import { FooterSocialLinks } from "@/components/layout/FooterSocialLinks";
 import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
@@ -66,29 +66,7 @@ export function Footer() {
           <p className="text-sm text-volpe-text-secondary">
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => {
-              const href =
-                social.href === "whatsapp"
-                  ? getWhatsAppUrl()
-                  : social.href;
-              const isExternal =
-                social.href.startsWith("http") || social.href === "whatsapp";
-
-              return (
-                <a
-                  key={social.label}
-                  href={href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-volpe-gray-medium/50 text-volpe-text-secondary transition-all hover:border-volpe-primary/50 hover:text-volpe-primary"
-                  aria-label={social.label}
-                >
-                  <SocialIcon icon={social.icon} className="h-4 w-4" />
-                </a>
-              );
-            })}
-          </div>
+          <FooterSocialLinks />
         </div>
       </Container>
     </footer>

@@ -63,7 +63,7 @@ export const brandAssets = {
   foxHero: "/images/volpe-fox-hero.png",
   foxHeroTransparent: "/images/volpe-fox-hero-transparent.png",
   fox: "/images/volpe-fox-hero-transparent.png",
-  favicon: "/images/volpe-favicon.png",
+  favicon: "/images/volpe-logo-icon.png",
   ogImage: "/images/volpe-logo-transparent.png",
   aboutIllustration: "/images/volpe-about-fox-transparent.png",
 } as const;

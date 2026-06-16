@@ -65,10 +65,10 @@ export function HowItWorksSection() {
             </div>
           </div>
 
-          <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+          <div className="grid auto-rows-fr gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
             {processSteps.map((step, index) => (
-              <ScrollReveal key={step.step} delay={index * 0.15}>
-                <div className="relative flex flex-col items-center text-center">
+              <ScrollReveal key={step.step} delay={index * 0.15} className="h-full">
+                <div className="relative flex h-full flex-col items-center text-center">
                   <div className="relative mb-6">
                     <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-2xl border border-volpe-primary/30 bg-volpe-gray-dark shadow-glow-orange">
                       <ProcessStepIcon step={step.step} />

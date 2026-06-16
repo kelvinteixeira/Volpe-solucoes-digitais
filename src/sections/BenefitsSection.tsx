@@ -33,7 +33,7 @@ export function BenefitsSection() {
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
               >
-                <BrandCard className="group flex h-full min-h-[260px] flex-col sm:min-h-[280px] xl:min-h-[300px]">
+                <BrandCard className="group flex h-full min-h-[280px] flex-col">
                   <div className="mb-6 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-volpe-primary/20 bg-volpe-primary/10 transition-colors group-hover:border-volpe-primary/40 group-hover:bg-volpe-primary/15">
                     <benefit.icon
                       className="h-7 w-7 text-volpe-primary"

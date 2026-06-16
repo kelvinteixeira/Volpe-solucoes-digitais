@@ -15,8 +15,11 @@ export function createMetadata(): Metadata {
     creator: siteConfig.name,
     publisher: siteConfig.name,
     icons: {
-      icon: brandAssets.favicon,
-      apple: brandAssets.favicon,
+      icon: [
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+        { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      ],
+      apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
     },
     robots: {
       index: true,

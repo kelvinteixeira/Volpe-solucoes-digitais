@@ -1,23 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { portfolioProjects, portfolioSection } from "@/data/portfolio";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { cn } from "@/lib/utils";
 import type { PortfolioProject } from "@/types";
 
-const categoryColors: Record<string, string> = {
-  "Clínica Odontológica": "from-sky-500 to-blue-600",
-  "Escritório de Advocacia": "from-slate-600 to-zinc-800",
-  Psicologia: "from-emerald-500 to-teal-600",
-  Barbearia: "from-amber-500 to-orange-600",
-  Academia: "from-red-500 to-orange-500",
-  Contabilidade: "from-indigo-500 to-blue-600",
-};
+const themeStyles = {
+  barber: {
+    header: "bg-volpe-black",
+    glow: "bg-white/5",
+    tag: "border-white/10 bg-white/5 text-volpe-text-secondary",
+  },
+  dental: {
+    header: "bg-volpe-black",
+    glow: "bg-sky-400/10",
+    tag: "border-sky-400/20 bg-sky-400/10 text-sky-100/80",
+  },
+  legal: {
+    header: "bg-volpe-black",
+    glow: "bg-amber-400/10",
+    tag: "border-amber-400/20 bg-amber-400/10 text-amber-100/80",
+  },
+} as const;
+
+function getProjectDomain(href: string) {
+  try {
+    return new URL(href).hostname.replace("www.", "");
+  } catch {
+    return href;
+  }
+}
 
 function PortfolioCard({
   project,
@@ -26,41 +45,80 @@ function PortfolioCard({
   project: PortfolioProject;
   enableHover?: boolean;
 }) {
+  const theme = themeStyles[project.theme];
+
   return (
     <motion.article
       whileHover={enableHover ? { y: -6 } : undefined}
       transition={{ duration: 0.3 }}
-      className="group volpe-card overflow-hidden transition-colors hover:border-volpe-primary/40"
+      className="group volpe-card flex h-full flex-col overflow-hidden transition-colors hover:border-volpe-primary/40"
     >
       <div
-        className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${categoryColors[project.category] ?? "from-volpe-primary to-volpe-secondary"}`}
+        className={cn(
+          "relative flex h-48 shrink-0 items-center justify-center overflow-hidden px-8 py-6",
+          theme.header,
+        )}
       >
         <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15)_0%,transparent_50%)]"
+          className={cn(
+            "pointer-events-none absolute inset-8 rounded-2xl blur-2xl",
+            theme.glow,
+          )}
           aria-hidden="true"
         />
-        <span className="relative font-display text-4xl font-extrabold text-white/20">
-          {project.name.split(" ")[0]}
-        </span>
-        <span className="absolute top-4 left-4 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+        <div className="relative h-full w-full max-w-[220px]">
+          <Image
+            src={project.image}
+            alt={`Logo ${project.name}`}
+            fill
+            className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
+            sizes="220px"
+            quality={95}
+          />
+        </div>
+        <span className="absolute top-4 left-4 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
           {project.category}
         </span>
       </div>
-      <div className="p-6">
-        <h3 className="font-display text-lg font-bold text-white">
-          {project.name}
-        </h3>
-        <p className="mt-1 text-sm text-volpe-text-secondary">
-          {project.category}
+
+      <div className="flex flex-1 flex-col p-6">
+        <div>
+          <h3 className="font-display text-lg font-bold text-white">
+            {project.name}
+          </h3>
+          <p className="mt-1 flex items-center gap-1.5 text-xs text-volpe-text-muted">
+            <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
+            {getProjectDomain(project.href)}
+          </p>
+        </div>
+
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-volpe-text-secondary">
+          {project.description}
         </p>
+
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <li
+              key={tag}
+              className={cn(
+                "rounded-full border px-2.5 py-1 text-[11px] font-medium",
+                theme.tag,
+              )}
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+
         <Button
           href={project.href}
+          external
           variant="ghost"
           showArrow
-          className="mt-4 px-0 py-0 text-sm hover:bg-transparent"
-          ariaLabel={`Ver projeto ${project.name}`}
+          className="mt-5 shrink-0 px-0 py-0 text-sm hover:bg-transparent"
+          ariaLabel={`Acessar site ${project.name}`}
         >
-          Ver Projeto
+          Acessar site
         </Button>
       </div>
     </motion.article>
@@ -152,9 +210,9 @@ export function PortfolioSection() {
           </div>
         </div>
 
-        <div className="mt-16 hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 hidden auto-rows-fr gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
           {portfolioProjects.map((project, index) => (
-            <ScrollReveal key={project.id} delay={index * 0.08}>
+            <ScrollReveal key={project.id} delay={index * 0.08} className="h-full">
               <PortfolioCard project={project} />
             </ScrollReveal>
           ))}

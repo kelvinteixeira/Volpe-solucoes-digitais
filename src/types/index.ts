@@ -35,9 +35,11 @@ export interface PortfolioProject {
   id: string;
   name: string;
   category: string;
+  description: string;
   image: string;
-  gradient: string;
   href: string;
+  tags: string[];
+  theme: "barber" | "dental" | "legal";
 }
 
 export interface Testimonial {

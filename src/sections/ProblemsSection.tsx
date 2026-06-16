@@ -20,10 +20,10 @@ export function ProblemsSection() {
           />
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid auto-rows-fr gap-4 sm:grid-cols-2">
           {problems.map((problem, index) => (
-            <ScrollReveal key={problem.text} delay={index * 0.06}>
-              <BrandCard showPixels={false} className="flex items-start gap-4 !p-5">
+            <ScrollReveal key={problem.text} delay={index * 0.06} className="h-full">
+              <BrandCard showPixels={false} className="flex h-full min-h-[120px] items-start gap-4 !p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-volpe-primary/20 bg-volpe-primary/10">
                   <problem.icon
                     className="h-5 w-5 text-volpe-primary"
