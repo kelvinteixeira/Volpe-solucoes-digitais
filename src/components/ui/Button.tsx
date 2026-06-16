@@ -19,6 +19,7 @@ interface ButtonProps {
   type?: "button" | "submit";
   external?: boolean;
   ariaLabel?: string;
+  disabled?: boolean;
 }
 
 const variants: Record<ButtonVariant, string> = {
@@ -51,11 +52,13 @@ export function Button({
   type = "button",
   external = false,
   ariaLabel,
+  disabled = false,
 }: ButtonProps) {
   const classes = cn(
     "group inline-flex items-center justify-center gap-2 normal-case transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-volpe-primary focus-visible:ring-offset-2 focus-visible:ring-offset-volpe-black",
     variants[variant],
     sizes[size],
+    disabled && "cursor-not-allowed opacity-50 pointer-events-none",
     className,
   );
 
@@ -99,12 +102,13 @@ export function Button({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={disabled ? undefined : { scale: 1.02 }}
+      whileTap={disabled ? undefined : { scale: 0.98 }}
       type={type}
       onClick={onClick}
       className={classes}
       aria-label={ariaLabel}
+      disabled={disabled}
     >
       {content}
     </motion.button>

@@ -69,12 +69,6 @@ export function createJsonLd() {
     url: siteConfig.url,
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "São Paulo",
-      addressRegion: "SP",
-      addressCountry: "BR",
-    },
     areaServed: "BR",
     serviceType: "Sites Institucionais",
     sameAs: [

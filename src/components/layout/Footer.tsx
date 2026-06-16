@@ -37,7 +37,6 @@ export function Footer() {
                   {siteConfig.email}
                 </a>
               </p>
-              <p>{siteConfig.address}</p>
             </div>
           </div>
 

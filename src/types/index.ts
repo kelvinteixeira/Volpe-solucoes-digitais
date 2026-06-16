@@ -82,6 +82,5 @@ export interface SiteConfig {
   };
   email: string;
   phone: string;
-  address: string;
   locale: string;
 }

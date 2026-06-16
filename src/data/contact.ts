@@ -14,7 +14,7 @@ export const contactSection = {
     emailLabel: "E-mail",
     emailPlaceholder: "seu@email.com",
     phoneLabel: "Telefone",
-    phonePlaceholder: "(11) 99999-9999",
+    phonePlaceholder: "(83) 99418-7614",
     messageLabel: "Mensagem",
     messagePlaceholder: "Conte-nos sobre seu negócio e o que você precisa...",
     submitLabel: "Solicitar orçamento",

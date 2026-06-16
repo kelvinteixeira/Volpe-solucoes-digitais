@@ -21,12 +21,11 @@ export const siteConfig: SiteConfig = {
     "Volpe Soluções Digitais",
   ],
   whatsapp: {
-    number: "5511999999999",
+    number: "5583994187614",
     message:
       "Olá! Vim pelo site da Volpe Soluções Digitais e gostaria de solicitar um orçamento para site institucional.",
   },
   email: "contato@volpesolucoesdigitais.com.br",
-  phone: "(11) 99999-9999",
-  address: "São Paulo, SP — Brasil",
+  phone: "(83) 99418-7614",
   locale: "pt-BR",
 };
