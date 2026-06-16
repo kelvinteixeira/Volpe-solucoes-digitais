@@ -33,6 +33,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${poppins.variable} ${inter.variable} scroll-smooth`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -40,7 +41,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-volpe-black font-body antialiased">
+      <body
+        className="min-h-screen bg-volpe-black font-body antialiased"
+        suppressHydrationWarning
+      >
         <Header />
         <main>{children}</main>
         <Footer />
